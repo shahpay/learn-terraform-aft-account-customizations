@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::668403860355:role/dtpl-logging-dev-budgets-reporting",
+                    "arn:aws:iam::245815655620:role/dtpl-logging-prod-budgets-reporting",
+                    "arn:aws:iam::668403860355:role/dtpl-logging-dev-monthly-cost-report",
+                    "arn:aws:iam::245815655620:role/dtpl-logging-prod-monthly-cost-report"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}

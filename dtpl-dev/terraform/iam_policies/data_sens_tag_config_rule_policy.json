@@ -1,0 +1,37 @@
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Action":[
+            "config:GetComplianceDetailsByConfigRule",
+            "config:BatchGetResourceConfig",
+            "tag:GetTagKeys",
+            "tag:GetTagValues",
+            "ec2:DescribeTags",
+            "s3:GetBucketTagging",
+            "ssm:ListTagsForResource",
+            "rds:ListTagsForResource",
+            "redshift:DescribeTags",
+            "msk:ListTagsForResource",
+            "dynamodb:ListTagsOfResource",
+            "sagemaker:ListTags",
+            "kinesis:AddTagsToStream",
+            "kinesis:ListTagsForStream",
+            "ecs:ListTagsForResource",
+            "ecr:ListTagsForResource",
+            "sqs:ListQueueTags",
+            "kinesisanalytics:ListTagsForResource",
+            "elasticmapreduce:DescribeEditor",
+            "elasticfilesystem:DescribeTags",
+            "sns:ListTagsForResource",
+            "sns:TagResource",
+            "athena:ListTagsForResource",
+            "elasticache:ListTagsForResource",
+            "eks:ListTagsForResource",
+            "glue:GetTags"
+         ],
+         "Effect":"Allow",
+         "Resource":"*"
+      }
+   ]
+}

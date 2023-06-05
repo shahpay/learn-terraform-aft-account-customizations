@@ -1,0 +1,15 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+                "AWS": [
+                    "arn:aws:iam::668403860355:role/dtpl-logging-dev-data-sens-tag-lambda",
+                    "arn:aws:iam::245815655620:role/dtpl-logging-prod-data-sens-tag-lambda"
+                ]
+            },
+        "Action": "sts:AssumeRole"
+      }
+    ]
+  }
