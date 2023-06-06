@@ -1,7 +1,36 @@
 ## Auto generated providers.tf ##
 ## Updated on: {{ timestamp }} ##
+
 provider "aws" {
   region = "{{ provider_region }}"
+  assume_role {
+    role_arn    = "{{ target_admin_role_arn }}"
+  }
+  default_tags {
+    tags = {
+      managed_by                  = "AFT"
+    }
+  }
+}
+
+
+provider "aws" {
+  alias  = "sts-root"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::127632347086:role/AWSAFTExecution"
+  }
+  default_tags {
+    tags = {
+      managed_by = "AFT"
+    }
+  }
+}
+
+# Custom provider for 'us-east-2' region
+provider "aws" {
+  alias  = "useast2"
+  region = "us-east-2"
   assume_role {
     role_arn = "{{ target_admin_role_arn }}"
   }
@@ -12,6 +41,49 @@ provider "aws" {
   }
 }
 
+# Custom provider for 'us-west-2' region
+provider "aws" {
+  alias  = "uswest2"
+  region = "us-west-2"
+  assume_role {
+    role_arn = "{{ target_admin_role_arn }}"
+  }
+  default_tags {
+    tags = {
+      managed_by = "AFT"
+    }
+  }
+}
+
+# Custom provider for 'ca-central-1' region
+provider "aws" {
+  alias  = "cacentral1"
+  region = "ca-central-1"
+  assume_role {
+    role_arn = "{{ target_admin_role_arn }}"
+  }
+  default_tags {
+    tags = {
+      managed_by = "AFT"
+    }
+  }
+}
+
+# Custom provider for 'eu-central-1' region
+provider "aws" {
+  alias  = "eucentral1"
+  region = "eu-central-1"
+  assume_role {
+    role_arn = "{{ target_admin_role_arn }}"
+  }
+  default_tags {
+    tags = {
+      managed_by = "AFT"
+    }
+  }
+}
+
+# Custom provider for 'eu-west-1' region
 provider "aws" {
   alias  = "euwest1"
   region = "eu-west-1"
@@ -25,9 +97,10 @@ provider "aws" {
   }
 }
 
+# Custom provider for 'eu-west-2' region
 provider "aws" {
-  alias  = "uswest2"
-  region = "us-west-2"
+  alias  = "euwest2"
+  region = "eu-west-2"
   assume_role {
     role_arn = "{{ target_admin_role_arn }}"
   }
