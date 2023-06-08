@@ -1,20 +1,14 @@
-variable disabled_control_all {
-  type = list(object({
-     control_id = string
-  }))
-  default = [{
-    control_id = "APIGateway.4"
-  }]
+variable disabled_nis_control_all_region {
+  type = map(string)
+  default = {
+    nis_apigateway_4 = "APIGateway.4"
+    nis_apigateway_5 = "APIGateway.5"
+  }
 }
 
-variable enabled_control_all {
-  type = list(object({
-    #  region = string,
-    # #  name = string,
-     control_id = string
-    #  disabled_reason = string 
-  }))
-  default = [{
-    control_id = "APIGateway.4"
-  }]
+variable enabled_nis_control_all_region {
+  type = map(string)
+  # default = {
+  #   nis_apigateway_4 = "APIGateway.4"
+  # }
 }
