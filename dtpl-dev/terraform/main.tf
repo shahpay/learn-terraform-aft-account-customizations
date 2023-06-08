@@ -10,11 +10,18 @@ data "aws_region" "eu-west-1" {
 
 module securityhubeuwest1 {
   providers = {
-    aws.euwest1 = aws.euwest1
-    aws.euwest2 = aws.euwest2
+    aws.region = aws.euwest1
   }
   source = "./modules/securityhub"
-  enabled_control =  var.enabled_control_all
+  enabled_control_all =  var.enabled_control_all
+}
+
+module securityhubeuwest1 {
+  providers = {
+    aws.region = aws.euwest2
+  }
+  source = "./modules/securityhub"
+  enabled_control_all =  var.enabled_control_all
 }
 
 # module securityhubeuwest2 {
