@@ -14,7 +14,7 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 4.20.0"
-      configuration_aliases = [ aws.region ]
+      configuration_aliases = [ aws.euwest1, aws.euwest2 ]
     }
   }
 }
