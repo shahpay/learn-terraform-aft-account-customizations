@@ -13,7 +13,7 @@ module securityhubeuwest1 {
     aws.region = aws.euwest1
   }
   source = "./modules/securityhub"
-  enabled_control_all =  var.enabled_control_all
+  enabled_nis_control_all_region =  var.enabled_control_all
 }
 
 module securityhubeuwest2 {
@@ -21,7 +21,7 @@ module securityhubeuwest2 {
     aws.region = aws.euwest2
   }
   source = "./modules/securityhub"
-  enabled_control_all =  var.enabled_control_all
+  enabled_nis_control_all_region =  var.enabled_control_all
 }
 
 # module securityhubeuwest2 {
