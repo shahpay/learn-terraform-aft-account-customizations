@@ -7,7 +7,9 @@ variable enabled_nis_control_all_region {
 
 variable enabled_nis_control_useast1 {
   type = map(string)
-  default = {}
+  default = {
+    nis_apigateway_5 = "APIGateway.5"
+  }
 }
 
 variable enabled_nis_control_useast2 {
