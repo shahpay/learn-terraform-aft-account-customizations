@@ -8,7 +8,7 @@ data "aws_region" "eu-west-1" {
     provider = aws.euwest1
 }
 
-module securityhub {
+module securityhubeuwest1 {
   providers = {
     aws.euwest1 = aws.euwest1
   }
@@ -16,7 +16,7 @@ module securityhub {
   enabled_control =  var.enabled_control_all
 }
 
-module securityhub {
+module securityhubeuwest2 {
   providers = {
     aws.euwest2 = aws.euwest2
   }
