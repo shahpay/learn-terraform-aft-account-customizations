@@ -16,7 +16,7 @@ module securityhubeuwest1 {
   enabled_control_all =  var.enabled_control_all
 }
 
-module securityhubeuwest1 {
+module securityhubeuwest2 {
   providers = {
     aws.region = aws.euwest2
   }
