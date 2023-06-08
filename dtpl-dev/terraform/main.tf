@@ -10,7 +10,7 @@ data "aws_region" "eu-west-1" {
 
 module securityhubeuwest1 {
   providers = {
-    aws.euwest1 = aws.euwest1
+    aws.region = aws.euwest1
   }
   source = "./modules/securityhub"
   enabled_nis_control_all_region =  var.enabled_nis_control_all_region
