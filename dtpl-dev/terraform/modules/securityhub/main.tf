@@ -58,7 +58,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_euwest1" {
    for_each = var.disabled_nis_control_all_region
    control_status = ("${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_euwest1["${each.key}"])}" ) ? "ENABLED" : "DISABLED"
    disabled_reason  = ("${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_euwest1["${each.key}"])}" ) ? null : local.disabled_reason
-   standards_control_arn = "arn:aws:securityhub:${data.aws_region.euwest1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
+   standards_control_arn = "arn:aws:securityhub:${data.aws_region.eu-west-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
 }
 
 resource "aws_securityhub_standards_control" "evaluate_controls_euwest2" {
@@ -66,5 +66,5 @@ resource "aws_securityhub_standards_control" "evaluate_controls_euwest2" {
    for_each = var.disabled_nis_control_all_region
    control_status = ( "${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_euwest2["${each.key}"])}" ) ? "ENABLED" : "DISABLED"
    disabled_reason  = ( "${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_euwest2["${each.key}"])}" ) ? null : local.disabled_reason
-   standards_control_arn = "arn:aws:securityhub:${data.aws_region.euwest2.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
+   standards_control_arn = "arn:aws:securityhub:${data.aws_region.eu-west-2.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
 }
