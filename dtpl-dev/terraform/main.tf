@@ -11,18 +11,19 @@ data "aws_region" "eu-west-1" {
 module securityhubeuwest1 {
   providers = {
     aws.euwest1 = aws.euwest1
+    aws.euwest2 = aws.euwest2
   }
   source = "./modules/securityhub"
   enabled_control =  var.enabled_control_all
 }
 
-module securityhubeuwest2 {
-  providers = {
-    aws.euwest2 = aws.euwest2
-  }
-  source = "./modules/securityhub"
-  enabled_control_all =  var.enabled_control_all
-}
+# module securityhubeuwest2 {
+#   providers = {
+#     aws.euwest2 = aws.euwest2
+#   }
+#   source = "./modules/securityhub"
+#   enabled_control_all =  var.enabled_control_all
+# }
 
 
 # resource "aws_securityhub_standards_control" "preventthis" {
