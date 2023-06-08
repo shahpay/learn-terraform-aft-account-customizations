@@ -35,7 +35,7 @@ data "aws_region" "euwest2" {
 
 data "aws_caller_identity" "current_account" {}
 
-resource "aws_securityhub_standards_control" "evaluate_controls" {
+resource "aws_securityhub_standards_control" "evaluate_controls_euwest1" {
    provider = aws.euwest1
    for_each = var.disabled_nis_control_all_region
    control_status = "${can(var.enabled_nis_control_all_region["${each.key}"])}" ? "ENABLED" : "DISABLED"
@@ -43,7 +43,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls" {
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.euwest1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
 }
 
-resource "aws_securityhub_standards_control" "evaluate_controls" {
+resource "aws_securityhub_standards_control" "evaluate_controls_euwest2" {
    provider = aws.euwest2
    for_each = var.disabled_nis_control_all_region
    control_status = "${can(var.enabled_nis_control_all_region["${each.key}"])}" ? "ENABLED" : "DISABLED"
