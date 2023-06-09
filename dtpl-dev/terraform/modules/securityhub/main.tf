@@ -50,11 +50,19 @@ data "aws_caller_identity" "current_account" {}
 #    standards_control_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
 # }
 
+resource "null_resource_useast1" "apig_5" {
+  triggers = {
+    status = ( "${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_useast1["${each.key}"])}" ) ? "ENABLED" : "DISABLED"
+  }
+}
 resource "aws_securityhub_standards_control" "evaluate_controls_useast1" {
    for_each = var.enabled_nis_control_useast1
    control_status = ( "${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_useast1["${each.key}"])}" ) ? "ENABLED" : "DISABLED"
-  #  disabled_reason  = null 
+   disabled_reason  = ( "${can(var.enabled_nis_control_all_region["${each.key}"])}" || "${can(var.enabled_nis_control_useast1["${each.key}"])}" ) ? null : local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
+  lifecycle {
+    replace_triggered_by  = [null_resource_useast1.apig_5]
+  }
 }
 
 
