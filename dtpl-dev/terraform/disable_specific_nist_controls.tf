@@ -12,7 +12,7 @@ default = {
 }
 }
 
-module securityhub {
+module securityhub_dtpl_dev {
   providers = {
     aws.useast2 = aws.useast2
     aws.uswest2 = aws.uswest2
