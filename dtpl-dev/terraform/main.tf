@@ -8,25 +8,18 @@
 #     provider = aws.euwest1
 # }
 
-module securityhub {
-  providers = {
-    aws.useast2 = aws.useast2
-    aws.uswest2 = aws.uswest2
-    aws.cacentral1 = aws.cacentral1
-    aws.eucentral1 = aws.eucentral1
-    aws.euwest1 = aws.euwest1
-    aws.euwest2 = aws.euwest2
-}
-  source = "./modules/securityhub"
-  enabled_nis_control_all_region =  var.enabled_nis_control_all_region
-  enabled_nis_control_useast1 = var.enabled_nis_control_useast1
-  enabled_nis_control_useast2 = var.enabled_nis_control_useast2
-  enabled_nis_control_uswest2 = var.enabled_nis_control_uswest2
-  enabled_nis_control_cacentral1 = var.enabled_nis_control_cacentral1
-  enabled_nis_control_eucentral1 = var.enabled_nis_control_eucentral1
-  enabled_nis_control_euwest1 = var.enabled_nis_control_euwest1
-  enabled_nis_control_euwest2 = var.enabled_nis_control_euwest2
-}
+# module securityhub {
+#   providers = {
+#     aws.useast2 = aws.useast2
+#     aws.uswest2 = aws.uswest2
+#     aws.cacentral1 = aws.cacentral1
+#     aws.eucentral1 = aws.eucentral1
+#     aws.euwest1 = aws.euwest1
+#     aws.euwest2 = aws.euwest2
+# }
+#   source = "./modules/securityhub"
+#   disabled_nis_control_all_region = disabled_nis_control_all_region
+# }
 
 # module securityhubeuwest2 {
 #   providers = {
